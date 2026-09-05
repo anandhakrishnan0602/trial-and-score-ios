@@ -13,6 +13,11 @@ struct Trial: Identifiable, Equatable {
     let status: String
     let phase: String
     let leadSponsor: String
+    
+    // user friendly status
+    var displayStatus: String {
+        status.replacingOccurrences(of: "_", with: " ").capitalized
+    }
  
     /// Fallback text shown for any field ClinicalTrials.gov didn't return.
     static let placeholder = "Not available"
