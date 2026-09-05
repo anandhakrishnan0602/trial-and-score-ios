@@ -1,0 +1,31 @@
+{
+  "studies": [
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT02305173",
+          "briefTitle": "Dexamethasone and Respiratory Function After Mastectomy"
+        },
+        "statusModule": { "overallStatus": "COMPLETED" },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": { "name": "Instituto Mexicano del Seguro Social" }
+        },
+        "designModule": { "phases": ["PHASE3"] }
+      }
+    },
+    {
+      "protocolSection": {
+        "identificationModule": {
+          "nctId": "NCT04449783",
+          "briefTitle": "Preoperative Shielding and N/T RT-PCR Swabbing for Elective Cancer Surgery"
+        },
+        "statusModule": { "overallStatus": "UNKNOWN" },
+        "sponsorCollaboratorsModule": {
+          "leadSponsor": { "name": "Liverpool University Hospitals NHS Foundation Trust" }
+        },
+        "designModule": {}
+      }
+    }
+  ],
+  "nextPageToken": "ZVt07cGHkvI2wRk2CJf6_LLt1ZGdP8swd7KrgP4Tnz6e"
+}
