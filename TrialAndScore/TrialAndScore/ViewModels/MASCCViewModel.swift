@@ -29,7 +29,6 @@ final class MASCCViewModel: ObservableObject {
         }
     }
     
-    // ViewModel
     func clearSelections() {
         selections = [:]
     }

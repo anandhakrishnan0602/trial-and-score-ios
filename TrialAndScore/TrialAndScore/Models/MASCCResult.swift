@@ -7,7 +7,7 @@
 
 struct MASCCResult {
     let totalScore: Int
-    let isLowRisk: Bool  // score >= 21
+    let isLowRisk: Bool
 
     var interpretation: String {
         isLowRisk

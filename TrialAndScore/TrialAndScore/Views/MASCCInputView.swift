@@ -27,6 +27,7 @@ struct MASCCInputView: View {
                 Button {
                     viewModel.calculate()
                     if viewModel.result != nil {
+                        // Clearing selections since naviagting to next screen and should be reset when navigating back.
                         viewModel.clearSelections()
                         navigateToResult = true
                     }
@@ -53,7 +54,7 @@ struct MASCCInputView: View {
             )
             .onChange(of: navigateToResult) { isActive in
                 if !isActive {
-                    // fires when the link becomes inactive — i.e. user popped back
+                    // fires when navigating back to this screen
                     viewModel.clearResult()
                 }
             }

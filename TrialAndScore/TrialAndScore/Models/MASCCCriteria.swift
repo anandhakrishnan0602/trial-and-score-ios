@@ -7,6 +7,7 @@
 
 import Foundation
 
+// data containing all the criteria for task 2
 enum MASCCCriteria {
     static let all: [Criterion] = [
         Criterion(

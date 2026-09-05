@@ -29,7 +29,7 @@ struct MASCCResultView: View {
                 presentationMode.wrappedValue.dismiss()
             }
             .buttonStyle(.bordered)
-            
+            // adding 2 Spacer will make the content to top part of center
             Spacer()
             Spacer()
 

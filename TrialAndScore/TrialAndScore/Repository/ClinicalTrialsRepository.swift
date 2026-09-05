@@ -14,6 +14,7 @@ final class ClinicalTrialsRepository {
 
     func fetchTrials(condition: String) async throws -> [Trial] {
         let trialResponse = try await service.fetchTrials(condition: condition)
+        // converting from DTO to Trial model
         let trials = trialResponse.studies.compactMap { Trial(study: $0) }
         return trials
     }
