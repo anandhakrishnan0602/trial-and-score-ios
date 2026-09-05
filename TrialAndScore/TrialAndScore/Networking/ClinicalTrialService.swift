@@ -42,9 +42,17 @@ struct ClinicalTrialsService {
 
     }
     
-    enum ServiceError: Error {
+    enum ServiceError: LocalizedError {
         case invalidURL
         case invalidResponse
         case decodingFailed
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidURL: return "Couldn't build a valid request."
+            case .invalidResponse: return "The server returned an unexpected response."
+            case .decodingFailed: return "Couldn't read the response from the server."
+            }
+        }
     }
 }
