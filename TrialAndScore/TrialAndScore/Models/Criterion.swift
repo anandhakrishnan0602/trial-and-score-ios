@@ -5,7 +5,10 @@
 //  Created by Anandhakrishnan on 05/09/26.
 //
 
-struct ScoringOption {
+import Foundation
+
+struct ScoringOption:Identifiable, Hashable {
+    let id = UUID()
     let label: String
     let points: Int
 }
