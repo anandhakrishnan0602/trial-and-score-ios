@@ -20,3 +20,5 @@ MVVM + Repository, SwiftUI, iOS 15.0 minimum deployment target. Task 1 (Clinical
 ## AI tool disclosure
 
 Built with assistance from Claude desktop for architecture discussion, code review and code generation.
+
+- the project's deployment target is set to iOS 15.0, but I wasn't able to get an iOS 15 simulator device to register in my local Xcode install. So I was not able to test the app in iOS 15.
