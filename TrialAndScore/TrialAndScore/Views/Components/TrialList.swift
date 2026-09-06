@@ -12,12 +12,14 @@ struct TrialList: View {
     let loadNextPage: () -> Void
     var body: some View {
         List(trials) { trial in
-            TrialRow(trial: trial)
-                .onAppear {
-                    if trial.id == trials.last?.id {
-                        loadNextPage()
+            NavigationLink(destination: TrialDetailView(trial: trial)) {
+                TrialRow(trial: trial)
+                    .onAppear {
+                        if trial.id == trials.last?.id {
+                            loadNextPage()
+                        }
                     }
-                }
+            }
         }
     }
 }
