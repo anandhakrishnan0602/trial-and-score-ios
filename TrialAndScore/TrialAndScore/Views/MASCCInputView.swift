@@ -10,6 +10,7 @@ import SwiftUI
 struct MASCCInputView: View {
     @StateObject private var viewModel = MASCCViewModel()
     @State private var navigateToResult = false
+    @State private var showingInfo = false
 
     var body: some View {
         NavigationView {
@@ -59,11 +60,23 @@ struct MASCCInputView: View {
                 }
             }
             .toolbar {
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showingInfo = true
+                    } label: {
+                        Image(systemName: "info.circle")
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Reset") {
                         viewModel.clearSelections()
                     }
                 }
+            }
+            .sheet(isPresented: $showingInfo) {
+                MASCCInfoView()
             }
             
         }
