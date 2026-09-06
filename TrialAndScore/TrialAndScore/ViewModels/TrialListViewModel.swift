@@ -17,6 +17,7 @@ final class TrialListViewModel: ObservableObject {
     }
 
     @Published private(set) var state: ViewState = .loading
+    @Published var searchText: String = "lung cancer"
 
     private let repository: ClinicalTrialsRepository
 
@@ -24,10 +25,10 @@ final class TrialListViewModel: ObservableObject {
         self.repository = repository ?? ClinicalTrialsRepository()
     }
 
-    func loadTrials(condition: String = "lung cancer") async {
+    func loadTrials() async {
         state = .loading
         do {
-            let trials = try await repository.fetchTrials(condition: condition)
+            let trials = try await repository.fetchTrials(condition: searchText)
             state = trials.isEmpty ? .empty : .loaded(trials)
         } catch {
             state = .error(error.localizedDescription)

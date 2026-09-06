@@ -17,6 +17,12 @@ struct TrialListView: View {
                 .task {
                     await viewModel.loadTrials()
                 }
+                .searchable(text: $viewModel.searchText)
+                .onSubmit(of: .search) {
+                    Task {
+                        await viewModel.loadTrials()
+                    }
+                }
         }
         .navigationViewStyle(.stack)
     }
