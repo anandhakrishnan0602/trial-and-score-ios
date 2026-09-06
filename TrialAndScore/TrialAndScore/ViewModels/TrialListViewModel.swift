@@ -45,6 +45,7 @@ final class TrialListViewModel: ObservableObject {
     }
     
     func loadNextPage() async {
+        // if by any chance a second call is trigerred when loading next page return
         guard !isLoadingNextPage, let token = nextPageToken else { return }
         isLoadingNextPage = true
         defer { isLoadingNextPage = false }

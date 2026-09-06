@@ -61,6 +61,7 @@ struct MASCCInputView: View {
             }
             .toolbar {
                 
+                // button to navigate to info screen
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         showingInfo = true
@@ -68,7 +69,7 @@ struct MASCCInputView: View {
                         Image(systemName: "info.circle")
                     }
                 }
-                
+                // button to reset the selected options.
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Reset") {
                         viewModel.clearSelections()

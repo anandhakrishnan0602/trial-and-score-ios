@@ -27,6 +27,7 @@ struct ClinicalTrialsService {
     }
 
     func fetchTrials(condition: String, pageToken: String? = nil) async throws -> ClinicalTrialsResponse{
+        // build URL with the conditon and page token.
         guard let url = buildURL(condition: condition, pageToken: pageToken) else {
             throw ServiceError.invalidURL
         }
@@ -46,6 +47,7 @@ struct ClinicalTrialsService {
 
     }
     
+    // custom error with user friendly message
     enum ServiceError: LocalizedError {
         case invalidURL
         case invalidResponse
