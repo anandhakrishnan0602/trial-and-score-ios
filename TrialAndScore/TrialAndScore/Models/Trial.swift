@@ -44,3 +44,8 @@ extension Trial {
             ?? Trial.placeholder
     }
 }
+
+struct TrialsPage {
+    let trials: [Trial]
+    let nextPageToken: String?
+}

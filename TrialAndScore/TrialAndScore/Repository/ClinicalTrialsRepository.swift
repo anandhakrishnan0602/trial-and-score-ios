@@ -12,10 +12,10 @@ final class ClinicalTrialsRepository {
         self.service = service
     }
 
-    func fetchTrials(condition: String) async throws -> [Trial] {
-        let trialResponse = try await service.fetchTrials(condition: condition)
+    func fetchTrials(condition: String, pageToken: String? = nil) async throws -> TrialsPage {
+        let trialResponse = try await service.fetchTrials(condition: condition, pageToken: pageToken)
         // converting from DTO to Trial model
         let trials = trialResponse.studies.compactMap { Trial(study: $0) }
-        return trials
+        return TrialsPage(trials: trials, nextPageToken: trialResponse.nextPageToken)
     }
 }

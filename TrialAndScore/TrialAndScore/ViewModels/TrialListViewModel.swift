@@ -18,6 +18,10 @@ final class TrialListViewModel: ObservableObject {
 
     @Published private(set) var state: ViewState = .loading
     @Published var searchText: String = "lung cancer"
+    
+    private var trials: [Trial] = []
+    private var nextPageToken: String?
+    private var isLoadingNextPage = false
 
     private let repository: ClinicalTrialsRepository
 
@@ -28,10 +32,28 @@ final class TrialListViewModel: ObservableObject {
     func loadTrials() async {
         state = .loading
         do {
-            let trials = try await repository.fetchTrials(condition: searchText)
+            let trialsPage = try await repository.fetchTrials(condition: searchText)
+            trials = trialsPage.trials
+            nextPageToken = trialsPage.nextPageToken
             state = trials.isEmpty ? .empty : .loaded(trials)
         } catch {
             state = .error(error.localizedDescription)
         }
+    }
+    
+    func loadNextPage() async {
+        guard !isLoadingNextPage, let token = nextPageToken else { return }
+        isLoadingNextPage = true
+        defer { isLoadingNextPage = false }
+
+        do {
+            let page = try await repository.fetchTrials(condition: searchText, pageToken: token)
+            trials.append(contentsOf: page.trials)
+            nextPageToken = page.nextPageToken
+            state = .loaded(trials)
+        } catch {
+            
+        }
+        
     }
 }

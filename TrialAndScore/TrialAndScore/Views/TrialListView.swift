@@ -39,7 +39,11 @@ struct TrialListView: View {
                     .foregroundColor(.secondary)
             }
         case .loaded(let trials):
-            TrialList(trials: trials)
+            TrialList(trials: trials) {
+                Task{
+                    await viewModel.loadNextPage()
+                }
+            }
         case .error(let message):
             VStack(spacing: 12) {
                 Text("Something went wrong")
