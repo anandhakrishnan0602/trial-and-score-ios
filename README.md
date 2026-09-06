@@ -17,8 +17,12 @@ MVVM + Repository, SwiftUI, iOS 15.0 minimum deployment target. Task 1 (Clinical
 
 - Inline error/retry UI for a failed next-page fetch during pagination (currently a failure is silent — the core pagination logic works.
 
+
+## How to run
+
+- Open the project in Xcode (15+), select an iOS 15+ simulator, and build and run. No API keys or setup required — the ClinicalTrials.gov v2 API is public.
+- the project's deployment target is set to iOS 15.0, but I wasn't able to get an iOS 15 simulator device to register in my local Xcode install. So I was not able to test the app in iOS 15.
+
 ## AI tool disclosure
 
 Built with assistance from Claude desktop for architecture discussion, code review and code generation.
-
-- the project's deployment target is set to iOS 15.0, but I wasn't able to get an iOS 15 simulator device to register in my local Xcode install. So I was not able to test the app in iOS 15.
