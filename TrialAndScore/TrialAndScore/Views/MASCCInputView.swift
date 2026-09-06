@@ -58,6 +58,13 @@ struct MASCCInputView: View {
                     viewModel.clearResult()
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Reset") {
+                        viewModel.clearSelections()
+                    }
+                }
+            }
             
         }
     }
