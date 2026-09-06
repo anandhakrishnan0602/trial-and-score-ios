@@ -30,6 +30,9 @@ final class TrialListViewModel: ObservableObject {
     }
 
     func loadTrials() async {
+        if case .loaded = state, !trials.isEmpty {
+            return  // already have results, no need to refetch
+        }
         state = .loading
         do {
             let trialsPage = try await repository.fetchTrials(condition: searchText)
